@@ -34,7 +34,7 @@
         android:textColor="?attr/colorPrimary"
         android:textSize="14sp"
         android:textStyle="bold"
-        tools:text="Language: Java"/>
+        tools:text="Team : Java"/>
 
     <TextView
         android:id="@+id/text_stars"

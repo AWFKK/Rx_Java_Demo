@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Rx_Java_Demo</string>
+
+    <string name="someone_like_you">Someone Like You</string>
+
+    <string name="adele">Adele</string>
 </resources>

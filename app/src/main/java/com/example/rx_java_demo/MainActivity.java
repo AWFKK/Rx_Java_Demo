@@ -1,6 +1,8 @@
 package com.example.rx_java_demo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.example.rx_java_demo.Adapter.Adapter;
 import com.example.rx_java_demo.Adapter.HerosAdapter;
 import com.example.rx_java_demo.Api.RetrofitClient;
 import com.example.rx_java_demo.Model.Hero;
@@ -23,7 +26,9 @@ import rx.schedulers.Schedulers;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
-    private HerosAdapter adapter = new HerosAdapter();
+//    private HerosAdapter adapter = new HerosAdapter();
+    private RecyclerView gridRecycler;
+    Adapter adapter;
     private Subscription subscription;
 
     @Override
@@ -31,8 +36,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final ListView listView = (ListView) findViewById(R.id.list_view_repos);
-        listView.setAdapter(adapter);
+/*        final ListView listView = (ListView) findViewById(R.id.list_view_repos);
+        listView.setAdapter(adapter);*/
+
+        gridRecycler = findViewById(R.id.recyclerview);
+        GridLayoutManager mGrid = new GridLayoutManager(MainActivity.this, 2);
+        gridRecycler.setLayoutManager(mGrid);
+        gridRecycler.setHasFixedSize(true);
 
         final Button buttonSearch = (Button) findViewById(R.id.button_search);
         buttonSearch.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +83,10 @@ public class MainActivity extends AppCompatActivity {
                     public void onNext(List<Hero> heroes) {
                         Log.d(TAG, "In onNext()");
                         //Setting Adapter Here
-                        adapter.setGitHubRepos(heroes);
+                        adapter = new Adapter(MainActivity.this, heroes);
+                        gridRecycler.setAdapter(adapter);
+
+                        //adapter.setGitHubRepos(heroes);
                     }
                 });
     }

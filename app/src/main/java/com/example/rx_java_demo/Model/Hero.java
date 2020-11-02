@@ -26,4 +26,55 @@ public class Hero {
         this.bio = bio;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getRealname() {
+        return realname;
+    }
+
+    public String getTeam() {
+        return team;
+    }
+
+    public String getFirstappearance() {
+        return firstappearance;
+    }
+
+    public void setFirstappearance(String firstappearance) {
+        this.firstappearance = firstappearance;
+    }
+
+    public String getCreatedby() {
+        return createdby;
+    }
+
+    public void setCreatedby(String createdby) {
+        this.createdby = createdby;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public String getImageurl() {
+        return imageurl;
+    }
+
+    public void setImageurl(String imageurl) {
+        this.imageurl = imageurl;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
 }

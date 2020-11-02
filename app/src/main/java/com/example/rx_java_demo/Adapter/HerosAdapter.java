@@ -75,7 +75,7 @@ public class HerosAdapter extends BaseAdapter {
         public void setGitHubRepo(Hero gitHubRepo) {
             textRepoName.setText(gitHubRepo.name);
             textRepoDescription.setText(gitHubRepo.realname);
-            textLanguage.setText("Language: " + gitHubRepo.team);
+            textLanguage.setText("Team: " + gitHubRepo.team);
             textStars.setText("Stars: " + gitHubRepo.createdby);
         }
     }
